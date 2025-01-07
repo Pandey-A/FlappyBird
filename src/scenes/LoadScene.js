@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import background from '../assets/background.png';
 import bird from '../assets/birdSprite.png';
+import spiderman from '../assets/spiderman.png';
 import title from '../assets/title.png';
 import playButton from '../assets/play_button.png';
 import leaderBoardButton from '../assets/leaderboardButton.png';
@@ -24,18 +25,18 @@ export default class LoadScene extends Phaser.Scene {
   preload() {
     this.load.image('background', background);
 
-    this.load.spritesheet('logobird', bird, {
-      frameWidth: 20,
-      frameHeight: 14,
+    this.load.spritesheet('logobird', spiderman, {
+      frameWidth: 52,
+      frameHeight: 49,
       startFrame: 0,
-      endFrame: 2,
+      endFrame: 5,
     });
 
-    this.load.spritesheet('bird', bird, {
-      frameWidth: 20,
-      frameHeight: 14,
+    this.load.spritesheet('bird', spiderman, {
+      frameWidth: 52,
+      frameHeight: 49,
       startFrame: 0,
-      endFrame: 2,
+      endFrame: 5,
     });
 
     this.load.image('title', title);
