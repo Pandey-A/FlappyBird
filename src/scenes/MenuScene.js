@@ -15,7 +15,7 @@ export default class MenuScene extends Phaser.Scene {
     const playButton = this.add.image(this.game.renderer.width / 4, 350, 'play_button').setScale(2).setOrigin(0.5);
 
     const leaderboardButton = this.add.image((this.game.renderer.width / 4) * 3, 350, 'leaderboard_button').setScale(2).setOrigin(0.5);
-
+ 
     this.anims.create({
       key: 'logo_fly',
       frameRate: 3,
