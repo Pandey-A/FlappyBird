@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<img name="fly.png" w="306" h="52">
+<img name="spiderman.png" w="306" h="52">
   <definitions>
     <dir name="/">
       <spr name="0" x="2" y="7" w="42" h="39"/>
-      <spr name="1" x="60" y="0" w="52" h="49"/>
+      <spr name="1" x="60" y="0" w="42" h="49"/>
       <spr name="2" x="118" y="6" w="35" h="43"/>
       <spr name="3" x="160" y="8" w="34" h="35"/>
       <spr name="4" x="204" y="8" w="42" h="30"/>

@@ -6,22 +6,22 @@ export default class MenuScene extends Phaser.Scene {
   }
 
   create() {
-    this.add.image(0, 0, 'background').setScale(2).setOrigin(0);
+    this.add.image(0, 0, 'background').setScale(0.6).setOrigin(0);
 
-    this.add.image(this.game.renderer.width / 2 - 89, 80, 'title').setScale(2).setOrigin(0);
+    this.add.image(this.game.renderer.width / 2 - 89, -70, 'title').setScale(0.6).setOrigin(0);
 
-    const animatedLogo = this.add.sprite(this.game.renderer.width / 2 - 30, 170, 'logobird').setScale(3).setOrigin(0);
+    const animatedLogo = this.add.sprite(this.game.renderer.width / 2 - 60, 150, 'logobird').setScale(2).setOrigin(0);
 
-    const playButton = this.add.image(this.game.renderer.width / 4, 350, 'play_button').setScale(2).setOrigin(0.5);
+    const playButton = this.add.image(this.game.renderer.width / 4, 450, 'play_button').setScale(2).setOrigin(0.5);
 
-    const leaderboardButton = this.add.image((this.game.renderer.width / 4) * 3, 350, 'leaderboard_button').setScale(2).setOrigin(0.5);
+    const leaderboardButton = this.add.image((this.game.renderer.width / 4) * 3, 450, 'leaderboard_button').setScale(2).setOrigin(0.5);
 
     this.anims.create({
       key: 'logo_fly',
       frameRate: 3,
       repeat: -1,
       frames: this.anims.generateFrameNumbers('logobird', {
-        frames: [0, 1, 2],
+        frames: [ 0,1,2 ],
       }),
     });
 

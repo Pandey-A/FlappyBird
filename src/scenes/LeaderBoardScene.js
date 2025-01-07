@@ -7,9 +7,9 @@ export default class MenuScene extends Phaser.Scene {
   }
 
   create() {
-    this.add.image(0, 0, 'background').setScale(2).setOrigin(0);
+    this.add.image(0, 0, 'background').setScale(0.7).setOrigin(0);
 
-    this.add.image(144, 50, 'title').setScale(2);
+    this.add.image(144, -10, 'title').setScale(0.6);
 
     this.add.text(144, 100, 'LeaderBoard', {
       font: '25px Sans-serif',

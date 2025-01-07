@@ -1,6 +1,5 @@
 import Phaser from 'phaser';
 import background from '../assets/background.png';
-import bird from '../assets/birdSprite.png';
 import spiderman from '../assets/spiderman.png';
 import title from '../assets/title.png';
 import playButton from '../assets/play_button.png';

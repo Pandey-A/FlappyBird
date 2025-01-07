@@ -10,7 +10,7 @@ export default class MenuScene extends Phaser.Scene {
   }
 
   create() {
-    this.add.image(0, 0, 'background').setOrigin(0).setScale(2);
+    this.add.image(0, 0, 'background').setOrigin(0).setScale(0.7);
 
     this.wing_sound = this.sound.add('wing_sound');
 
@@ -18,7 +18,7 @@ export default class MenuScene extends Phaser.Scene {
 
     this.hit_sound = this.sound.add('hit_sound');
 
-    this.bird = this.physics.add.sprite(50, 100, 'bird').setScale(0.8);
+    this.bird = this.physics.add.sprite(50, 100, 'bird').setScale(1.4);
 
     this.bird.setGravityY(1000);
 
@@ -59,7 +59,7 @@ export default class MenuScene extends Phaser.Scene {
       },
     );
 
-    this.labelScore.setDepth(2);
+    this.labelScore.setDepth(1);
 
     this.physics.add.overlap(this.bird, this.tubes, this.hitTube, null, this);
 
@@ -87,16 +87,24 @@ export default class MenuScene extends Phaser.Scene {
     }
   }
 
-  hitTube() {
-    if (this.bird.alive === false) {
-      return;
+  hitTube(bird, tube) {
+    if (this.bird.alive) return;
+    
+    const birdBounds = bird.getBounds();
+    const tubeBounds = tube.getBounds();
+    
+    // Define the x-axis bounds for collision detection
+    const COLLISION_X_MIN = 10;  // Left boundary
+    const COLLISION_X_MAX = 20;  // Right boundary
+    
+    // Only check for collision if the tube is within the x-axis bounds
+    if (tube.x >= COLLISION_X_MIN && tube.x <= COLLISION_X_MAX) {
+      if (Phaser.Geom.Intersects.RectangleToRectangle(birdBounds, tubeBounds)) {
+        this.bird.alive = false;
+        this.hit_sound.play();
+        this.gameOver();
+      }
     }
-
-    this.bird.alive = false;
-
-    this.hit_sound.play();
-
-    this.gameOver();
   }
 
   fly() {
@@ -117,7 +125,7 @@ export default class MenuScene extends Phaser.Scene {
   }
 
   addTopTube(x, y) {
-    const topPipe = this.physics.add.sprite(x, y, 'top_tube').setScale(2).setOrigin(0, 1);
+    const topPipe = this.physics.add.sprite(x, y, 'top_tube').setScale(0.5).setOrigin(0, 1);
 
     this.tubes.add(topPipe);
 
@@ -125,7 +133,7 @@ export default class MenuScene extends Phaser.Scene {
   }
 
   addBottomTube(x, y) {
-    const bottomPipe = this.physics.add.sprite(x, y, 'bottom_tube').setScale(2).setOrigin(0, 0);
+    const bottomPipe = this.physics.add.sprite(x, y, 'bottom_tube').setScale(0.5).setOrigin(0, 0);
 
     this.tubes.add(bottomPipe);
 
