@@ -10,6 +10,7 @@ export default class MenuScene extends Phaser.Scene {
   }
 
   create() {
+    
     this.add.image(0, 0, 'background').setOrigin(0).setScale(2);
 
     this.wing_sound = this.sound.add('wing_sound');
@@ -18,7 +19,7 @@ export default class MenuScene extends Phaser.Scene {
 
     this.hit_sound = this.sound.add('hit_sound');
 
-    this.bird = this.physics.add.sprite(50, 100, 'bird').setScale(2);
+    this.bird = this.physics.add.sprite(50, 100, 'bird').setScale(0.8);
 
     this.bird.setGravityY(1000);
 
@@ -117,7 +118,7 @@ export default class MenuScene extends Phaser.Scene {
   }
 
   addTopTube(x, y) {
-    const topPipe = this.physics.add.sprite(x, y, 'top_tube').setScale(2).setOrigin(0, 1);
+    const topPipe = this.physics.add.sprite(x, y, 'top_tube').setScale(2, 3).setOrigin(0, 1);
 
     this.tubes.add(topPipe);
 
@@ -125,7 +126,7 @@ export default class MenuScene extends Phaser.Scene {
   }
 
   addBottomTube(x, y) {
-    const bottomPipe = this.physics.add.sprite(x, y, 'bottom_tube').setScale(2).setOrigin(0, 0);
+    const bottomPipe = this.physics.add.sprite(x, y, 'bottom_tube').setScale(2, 3).setOrigin(0, 0);
 
     this.tubes.add(bottomPipe);
 
@@ -133,7 +134,7 @@ export default class MenuScene extends Phaser.Scene {
   }
 
   addTubes() {
-    const hole = Math.floor(Math.random() * 5) + 1;
+    const hole = Math.floor(Math.random() * 6) + 3;
 
     this.addTopTube(288, hole * 50 + 20);
 
